@@ -19,7 +19,6 @@
         android:textColor="#ffffff"
         android:background="#A3885D"
         android:layout_marginBottom="25dp"
-
         />
 
 
@@ -48,7 +47,7 @@
         android:layout_marginVertical="20dp"
         android:background="@drawable/button_bg"
         android:textColor="#ffffff"
-        android:onClick="launchOtpActivity"
+        android:onClick="launchHomeActivity"
         />
     <TextView
         android:layout_width="match_parent"
@@ -56,6 +55,6 @@
         android:text="Resend OTP"
         android:layout_marginHorizontal="30dp"
         android:textAlignment="center"
-        android:onClick="launchLoginActivity"
+
         />
 </LinearLayout>
