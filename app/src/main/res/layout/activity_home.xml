@@ -6,21 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:orientation="vertical">
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:title="@string/app_name">
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        app:title="@string/app_name">-->
 
-    </androidx.appcompat.widget.Toolbar>
+<!--    </androidx.appcompat.widget.Toolbar>-->
+    <include
+        layout="@layout/appbar"/>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tablayout"
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#A3885D"
-        app:tabTextColor="#ffffff"
-        app:tabSelectedTextColor="@color/colorPrimaryDark"
+        android:background="@color/colorPrimaryDark"
+        app:tabTextColor="@color/colorAccent"
+        app:tabSelectedTextColor="#ffffff"
 
         >
 

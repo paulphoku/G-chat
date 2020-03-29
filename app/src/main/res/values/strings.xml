@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ems</string>
+    <string name="app_name">Ems</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="tab_text_1">Updates</string>
     <string name="tab_text_2">Account</string>
