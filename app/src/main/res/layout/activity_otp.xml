@@ -11,14 +11,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:text="Enter OTP"
+        android:text="@string/enter_otp"
         android:paddingVertical="35dp"
         android:textAlignment="center"
         android:textSize="70sp"
         android:fontFamily="cursive"
         android:textColor="#ffffff"
-        android:background="#A3885D"
         android:layout_marginBottom="25dp"
+        android:background="@drawable/bgtext"
         />
 
 
@@ -26,13 +26,13 @@
         android:layout_width="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/otp_password"
         android:textColor="#D95525"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/otp_txt_password"
         android:inputType="textPassword"
         android:paddingHorizontal="12dp"
         android:paddingVertical="20dp"
@@ -42,7 +42,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Confirm"
+        android:text="@string/otp_btn_confirm"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="20dp"
         android:background="@drawable/button_bg"
@@ -52,7 +52,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resend OTP"
+        android:text="@string/otp_resend"
         android:layout_marginHorizontal="30dp"
         android:textAlignment="center"
 

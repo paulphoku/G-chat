@@ -48,13 +48,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tab1 = (TabItem) findViewById(R.id.Tab1);
-        tab2 = (TabItem) findViewById(R.id.Tab2);
-        tab3 = (TabItem) findViewById(R.id.Tab3);
+        tabLayout = findViewById(R.id.tabLayout);
+        tab1 = findViewById(R.id.Tab1);
+        tab2 = findViewById(R.id.Tab2);
+        tab3 = findViewById(R.id.Tab3);
         viewPager = findViewById(R.id.viewpager);
 
-        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar = findViewById(R.id.my_toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Main Page");
         }
@@ -84,6 +84,8 @@ public class HomeActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
+
+
         });
 
        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -95,28 +97,43 @@ public class HomeActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
+//        return super.onCreateOptionsMenu(menu);
     }
+
+
     //options menu on select TODO
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId())
-        {
-            case R.id.settings:
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // User chose the "Settings" item, show the app settings UI...
                 Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.exit:
-                Toast.makeText(this, "Exit", Toast.LENGTH_SHORT).show();
-                //exit();
+
+            case R.id.action_exit:
+                // User chose the "Favorite" action, mark the current item
+                Toast.makeText(HomeActivity.this, "Exit", Toast.LENGTH_SHORT).show();
+                exit();
                 return true;
-            case R.id.update_profile:
-                Toast.makeText(this, "Update Profile", Toast.LENGTH_SHORT).show();
+
+            case R.id.action_log:
+                // User chose the "Favorite" action, mark the current item
+                Toast.makeText(HomeActivity.this, "Login", Toast.LENGTH_SHORT).show();
+                exit();
                 return true;
-            case R.id.log:
-                Toast.makeText(this, "Log", Toast.LENGTH_SHORT).show();
+
+            case R.id.action_update_profile:
+                // User chose the "Favorite" action, mark the current item
+                Toast.makeText(HomeActivity.this, "update profile", Toast.LENGTH_SHORT).show();
+
+                exit();
                 return true;
+
             default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
         }
+
     }
 }

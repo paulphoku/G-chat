@@ -19,18 +19,22 @@
         android:textColor="#ffffff"
         android:background="@drawable/bgtext"
         android:layout_marginBottom="25dp"
+
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_height="wrap_content"
-        android:text="User name"
+        android:text="Email"
         android:textColor="#D95525"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:id="@+id/txtLogEmail"
+        android:hint="email"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="20dp"
         android:layout_marginHorizontal="30dp"
         />
     <TextView
@@ -48,6 +52,7 @@
         android:paddingHorizontal="12dp"
         android:paddingVertical="20dp"
         android:layout_marginHorizontal="30dp"
+        android:id="@+id/txtLogPassword"
         />
 
     <Button
@@ -58,7 +63,7 @@
         android:layout_marginVertical="20dp"
         android:background="@drawable/button_bg"
         android:textColor="#ffffff"
-        android:onClick="launchOtpActivity"
+        android:id="@+id/btnLogin"
         />
     <TextView
         android:layout_width="match_parent"

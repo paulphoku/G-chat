@@ -10,31 +10,33 @@
         android:icon="@drawable/ic_more_vert_black_24dp"
         >
         <item
-            android:title="Settings"
-            android:id="@+id/settings"
-            android:icon="@drawable/ic_settings_black_24dp"
-            app:showAsAction="never"
-            />
-
-        <item
             android:title="Update Profile"
-            android:id="@+id/update_profile"
+            android:id="@+id/action_update_profile"
             android:icon="@drawable/ic_account_circle_black_24dp"
             app:showAsAction="never"
             />
 
         <item
             android:title="Logout"
-            android:id="@+id/log"
+            android:id="@+id/action_log"
+            android:icon="@drawable/ic_settings_black_24dp"
+            app:showAsAction="never"
+            />
+
+        <item
+            android:title="Settings"
+            android:id="@+id/action_settings"
             android:icon="@drawable/ic_settings_black_24dp"
             app:showAsAction="never"
             />
 
         <item
             android:title="Exit"
-            android:id="@+id/exit"
+            android:id="@+id/action_exit"
             android:icon="@drawable/ic_search_black_24dp"
             app:showAsAction="never"
+
+
             />
     </item>
 

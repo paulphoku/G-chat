@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:text="Register"
+        android:text="@string/register"
         android:paddingVertical="35dp"
         android:textAlignment="center"
         android:textSize="70sp"
@@ -19,66 +19,72 @@
         android:background="@drawable/bgtext"
         android:layout_marginBottom="25dp"
         />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_marginHorizontal="30dp"
-            android:layout_height="wrap_content"
-            android:text="Email Address"
-            android:textColor="#D95525"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            />
-
+    //Email
     <TextView
         android:layout_width="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_height="wrap_content"
-        android:text="Full Names"
+        android:text="Email Address"
         android:textColor="#D95525"
         />
     <EditText
+        android:id="@+id/txtRegEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        />
+        android:inputType="textEmailAddress" />
+    //First name
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="@string/reg_username"
+        android:textColor="#D95525" />
+
+    <EditText
+        android:id="@+id/txtRegUsrName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+    //Password
     <TextView
         android:layout_width="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/reg_password"
         android:textColor="#D95525"
         />
+
     <EditText
+        android:id="@+id/txtRegPass1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingHorizontal="12dp"
-        android:paddingVertical="20dp"
-        android:layout_marginHorizontal="30dp"
-        />
+        android:paddingVertical="20dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_height="wrap_content"
-        android:text="Confirm Password"
+        android:text="@string/reg_confirm_password"
         android:textColor="#D95525"
         />
+
     <EditText
+        android:id="@+id/txtRegPass2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingHorizontal="12dp"
-        android:paddingVertical="20dp"
-        android:layout_marginHorizontal="30dp"
-        />
+        android:paddingVertical="20dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -89,11 +95,12 @@
         android:background="@drawable/button_bg"
         android:textColor="#ffffff"
         android:onClick="launchOtpActivity"
+        android:id="@+id/btnReg"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aready registered? Login!"
+        android:text="Already registered? Login!"
         android:layout_marginHorizontal="30dp"
         android:textAlignment="center"
         android:onClick="launchLoginActivity"
