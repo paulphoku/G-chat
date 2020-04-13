@@ -7,6 +7,9 @@ import android.view.View;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.eqot.fontawesome.FontAwesome;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -15,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FontAwesome.applyToAllViews(this, findViewById(R.id.activity_main));
 
         //Welcom Screen
         new Handler().postDelayed(new Runnable() {
@@ -34,4 +38,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
+
+
 }

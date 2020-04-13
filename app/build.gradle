@@ -35,6 +35,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //Card view
+    implementation "androidx.cardview:cardview:1.0.0"
+
     //Rx Java
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
@@ -42,5 +45,11 @@ dependencies {
     //Retrofit
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+
+    //font awesome
+    implementation 'info.androidhive:fontawesome:0.0.5'
+    compile 'com.eqot:font-awesome-android:0.1.0'
+    implementation 'com.github.gmazzo:fontawesome:0.4'
+
 
 }

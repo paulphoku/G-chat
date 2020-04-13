@@ -4,7 +4,7 @@
     <!-- Tabs -->
     <string name="tab_text_1">Updates</string>
     <string name="tab_text_2">Account</string>
-    <string name="tab_text_3">Profile</string>
+    <string name="tab_text_3">Support</string>
         <!-- Fragments -->
         <string name="hello_blank_fragment1">Hello blank fragment 1</string>
         <string name="hello_blank_fragment2">Hello blank fragment 2</string>
@@ -22,5 +22,9 @@
     <string name="otp_resend">Resend OTP</string>
     <string name="otp_txt_password">Password</string>
     <string name="otp_password">Password</string>
+
+    <!-- Font awesome -->
+    <string name="label1">This is an example {fa-smile-o} {fa-thumbs-o-up}</string>
+    <string name="label2">{fa-font-awesome} Font Awesome</string>
 
 </resources>

@@ -6,13 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:orientation="vertical">
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorPrimary"-->
-<!--        app:title="@string/app_name">-->
 
-<!--    </androidx.appcompat.widget.Toolbar>-->
     <include
         layout="@layout/appbar"/>
 
@@ -20,17 +14,26 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        app:tabTextColor="@color/colorAccent"
-        app:tabSelectedTextColor="#ffffff"
-
+        android:background="@color/primaryColor"
+        app:tabTextColor="@color/primaryDarkColor"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorHeight="4dp"
+        app:tabMode="fixed"
+        app:tabIconTint="@color/primaryDarkColor"
+        app:tabIndicator="@color/white"
+        app:tabRippleColor="@color/primaryColor"
+        app:tabIndicatorAnimationDuration="@android:integer/config_shortAnimTime"
+        app:tabIconTintMode="src_in"
         >
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/Tab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_text_1">
+            android:text="@string/tab_text_1"
+            android:icon="@drawable/ic_glyph_solid_newspaper"
+            >
 
         </com.google.android.material.tabs.TabItem>
 
@@ -38,7 +41,9 @@
             android:id="@+id/Tab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_text_2">
+            android:text="@string/tab_text_2"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            >
 
         </com.google.android.material.tabs.TabItem>
 
@@ -46,7 +51,9 @@
             android:id="@+id/Tab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_text_3">
+            android:text="@string/tab_text_3"
+            android:icon="@drawable/ic_glyph_solid_question_circle"
+            >
 
         </com.google.android.material.tabs.TabItem>
 
@@ -58,5 +65,6 @@
         android:layout_height="match_parent">
 
     </androidx.viewpager.widget.ViewPager>
+
 
 </LinearLayout>
