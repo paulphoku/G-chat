@@ -16,4 +16,5 @@
     <color name="orange">#D95525</color>
 
     <color name="icon_color" >#ffffff</color>
+    <color name="grey" >#DCDCDC</color>
 </resources>

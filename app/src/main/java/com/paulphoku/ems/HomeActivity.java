@@ -1,22 +1,49 @@
 package com.paulphoku.ems;
 
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
 import android.content.Intent;
+import android.net.wifi.WifiEnterpriseConfig;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.paulphoku.ems.Retrofit.Api;
+import com.paulphoku.ems.Retrofit.Balance;
+import com.paulphoku.ems.Retrofit.INodeJS;
+import com.paulphoku.ems.Retrofit.RetrofitClient;
+import com.paulphoku.ems.Retrofit.Transactions;
+import com.paulphoku.ems.Retrofit.User;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -25,6 +52,12 @@ public class HomeActivity extends AppCompatActivity {
     private TabItem tab1, tab2, tab3;
     public PagerAdapter pagerAdapter;
     private Toolbar toolbar;
+    //public  TextView txtBal = (TextView) findViewById(R.id.txtABalance);
+    INodeJS api;
+
+
+
+
 
     //Exit
     public void exit() {
@@ -52,14 +85,15 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //Cards+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //Cards++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //chat
     public void card_chat(View view) {
-        Toast.makeText(this, "chat", Toast.LENGTH_SHORT).show();
-    }
+        Intent intent = new Intent(this, ChatActivity.class);
+        startActivity(intent);    }
     //about
     public void card_about(View view) {
-        Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
     }
     //schedule
     public void card_schedule(View view) {
@@ -71,8 +105,8 @@ public class HomeActivity extends AppCompatActivity {
     }
     //report
     public void card_report(View view) {
-        Toast.makeText(this, "report", Toast.LENGTH_SHORT).show();
-    }
+        Intent intent = new Intent(this, ReportActivity.class);
+        startActivity(intent);    }
     //buy
     public void card_buy(View view) {
         Toast.makeText(this, "buy", Toast.LENGTH_SHORT).show();
@@ -85,7 +119,7 @@ public class HomeActivity extends AppCompatActivity {
     public void card_news(View view) {
         Toast.makeText(this, "news", Toast.LENGTH_SHORT).show();
     }
-    //Cards end+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //Cards end+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,9 +136,13 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).getIcon().setTint(getResources().getColor(R.color.primaryDarkColor,getTheme()));
         tabLayout.getTabAt(2).getIcon().setTint(getResources().getColor(R.color.primaryDarkColor,getTheme()));
 
+        // toolbar is defined in the layout file
         toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.main_menu);
+
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
 
         pagerAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount() );
         viewPager.setAdapter(pagerAdapter);
@@ -139,6 +177,77 @@ public class HomeActivity extends AppCompatActivity {
         });
 
        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        //init Api
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://ems-b.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        //Define api
+        INodeJS jsonPlaceHolderApi = retrofit.create(INodeJS.class);
+        User user = new User();
+        String user_id = user.getUsrUniqueId();//"cf0dbec8-6407-4adf-84c8-65b9e95f5ea3";
+
+        //Get Transactions
+        Call<List<Transactions>> listCall = jsonPlaceHolderApi.getTransactions(user_id);
+        listCall.enqueue(new Callback<List<Transactions>>() {
+            @Override
+            public void onResponse(Call<List<Transactions>> call, Response<List<Transactions>> response) {
+                if (!response.isSuccessful()) {
+                    //textView.setText("Code " + response.code());
+                    Toast.makeText(HomeActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<Transactions> transactions = response.body();
+
+                for (Transactions transaction : transactions) {
+                    Log.d("myTag", "id : " + transaction.getTId());
+                    Log.d("myTag", "user id : " + transaction.getUsrId());
+                    Log.d("myTag", "date : " + transaction.getTDate());
+                    Log.d("myTag", "Desc : " + transaction.getTDesc());
+                    Log.d("myTag", "Type : " + transaction.getTType());
+                    Log.d("myTag", "Amt : " + transaction.getTAmt());
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Transactions>> call, Throwable t) {
+                //textView.setText(t.getMessage());
+                Toast.makeText(HomeActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        //Get Bal
+        Call<List<Balance>> balCall = jsonPlaceHolderApi.getBalance(user_id);
+        balCall.enqueue(new Callback<List<Balance>>() {
+            @Override
+            public void onResponse(Call<List<Balance>> call, Response<List<Balance>> response) {
+                if (!response.isSuccessful()) {
+                    //textView.setText("Code " + response.code());
+                    Toast.makeText(HomeActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<Balance> balances = response.body();
+
+                String b = "0";
+
+                for (Balance balance : balances) {
+                    Log.d("myTag", "Balance : " + balance.getBal());
+                    b = balance.getBal().toString();
+                }
+
+                //txtBal.append(b);
+
+
+            }
+            @Override
+            public void onFailure(Call<List<Balance>> call, Throwable t) {
+                //textView.setText(t.getMessage());
+                Toast.makeText(HomeActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //options menu method
@@ -169,7 +278,8 @@ public class HomeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 // User chose the "Settings" item, show the app settings UI...
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                Intent setting = new Intent(this, SettingsActivity.class);
+                startActivity(setting);
                 return true;
 
             case R.id.action_exit:

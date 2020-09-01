@@ -6,12 +6,18 @@
     android:background="#DCDCDC"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tab2">
+    tools:context=".tab2"
+    android:orientation="vertical"
+    >
 
-
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="190dp"
         android:orientation="vertical">
         //Balance
         <androidx.cardview.widget.CardView
@@ -65,10 +71,11 @@
                     android:layout_height="match_parent"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/txtABalance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="R467.97"
+                        android:text="R"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@color/primaryDarkColor"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -77,81 +84,93 @@
         </androidx.cardview.widget.CardView>
 
         //buttons
-       <androidx.appcompat.widget.LinearLayoutCompat
-           android:layout_width="match_parent"
-           android:layout_height="80dp"
-           android:orientation="horizontal"
-           android:layout_marginTop="15dp">
-           <androidx.cardview.widget.CardView
-               android:id="@+id/card_buy"
-               android:layout_width="185dp"
-               android:layout_marginLeft="10dp"
-               android:layout_marginRight="10dp"
-               android:layout_height="80dp"
-               android:layout_gravity="center_horizontal"
-               card_view:cardBackgroundColor="#ffffff"
-               card_view:cardCornerRadius="9dp"
-               card_view:cardElevation="4dp"
-               android:layout_marginTop="10dp"
-               android:onClick="card_buy"
-               >
-               <androidx.appcompat.widget.LinearLayoutCompat
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:orientation="vertical"
-                   android:gravity="center"
-                   >
-                   <ImageView
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_gravity="center"
-                       android:src="@drawable/ic_glyph_solid_mobile_alt"/>
-                   <TextView
-                       android:layout_width="match_parent"
-                       android:layout_height="30dp"
-                       android:text="buy prepaid airtime"
-                       android:gravity="center"
-                       android:textAppearance="?android:attr/textAppearance"
-                       />
-               </androidx.appcompat.widget.LinearLayoutCompat>
-           </androidx.cardview.widget.CardView>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_buy"
+                android:layout_width="188dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                card_view:cardBackgroundColor="#ffffff"
+                card_view:cardCornerRadius="9dp"
+                card_view:cardElevation="4dp"
+                android:layout_marginTop="10dp"
+                android:onClick="card_buy"
+                >
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_glyph_solid_mobile_alt"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="buy prepaid airtime"
+                        android:gravity="center"
+                        android:textAppearance="?android:attr/textAppearance"
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
 
-           <androidx.cardview.widget.CardView
-               android:id="@+id/card_add"
-               android:layout_width="185dp"
-               android:layout_marginLeft="10dp"
-               android:layout_marginRight="10dp"
-               android:layout_height="80dp"
-               android:layout_gravity="center_horizontal"
-               card_view:cardBackgroundColor="#ffffff"
-               card_view:cardCornerRadius="9dp"
-               card_view:cardElevation="4dp"
-               android:layout_marginTop="10dp"
-               android:onClick="card_add"
-               >
-               <androidx.appcompat.widget.LinearLayoutCompat
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:orientation="vertical"
-                   android:gravity="center"
-                   >
-                   <ImageView
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_gravity="center"
-                       android:src="@drawable/ic_glyph_solid_plus_circle"/>
-                   <TextView
-                       android:layout_width="match_parent"
-                       android:layout_height="30dp"
-                       android:text="Top Up Account"
-                       android:gravity="center"
-                       android:textAppearance="?android:attr/textAppearance"
-                       />
-               </androidx.appcompat.widget.LinearLayoutCompat>
-           </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_add"
+                android:layout_width="188dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                card_view:cardBackgroundColor="#ffffff"
+                card_view:cardCornerRadius="9dp"
+                card_view:cardElevation="4dp"
+                android:layout_marginTop="10dp"
+                android:onClick="card_add"
+                >
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_glyph_solid_plus_circle"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="Top Up Account"
+                        android:gravity="center"
+                        android:textAppearance="?android:attr/textAppearance"
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
 
-       </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="581dp">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/list">
+
+        </ListView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </FrameLayout>

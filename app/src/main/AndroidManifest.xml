@@ -1,49 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.paulphoku.ems">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
-        <!-- The main/home activity (it has no parent activity) -->
-        <activity android:name=".HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <!-- A child of the main activity -->
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+         <!-- The main/home activity -->
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- children of the main activity -->
+        <!-- OtpActivity -->
         <activity
             android:name=".OtpActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paulphoku.ems.HomeActivity" />
+        </activity>
+
+        <!-- ReportActivity -->
+        <activity android:name=".ReportActivity"
+            android:parentActivityName=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName="com.paulphoku.ems.HomeActivity"
-            />
-        <!-- A child of the main activity -->
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paulphoku.ems.HomeActivity" />
+        </activity>
+
+        <!-- ChatActivity -->
+        <activity
+            android:name=".ChatActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paulphoku.ems.HomeActivity" />
+        </activity>
+
+        <!-- SettingsActivity -->
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paulphoku.ems.HomeActivity" />
+        </activity>
+
+        <!-- AboutActivity -->
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paulphoku.ems.HomeActivity" />
+        </activity>
+
+        <!-- LoginActivity -->
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName="com.paulphoku.ems.HomeActivity"
-            />
-        <!-- A child of the main activity -->
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paulphoku.ems.HomeActivity" />
+        </activity>
+
+        <!-- RegisterActivity -->
         <activity
             android:name=".RegisterActivity"
+            android:parentActivityName=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:value="com.paulphoku.ems.MainActivity"
-            android:parentActivityName="com.paulphoku.ems.HomeActivity"
-            />
-        <!-- A child of the main activity -->
+            android:value="com.paulphoku.ems.MainActivity" />
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.paulphoku.ems.HomeActivity" />
+
+        <!-- SplashActivity -->
         <activity
             android:name=".MainActivity"
+            android:parentActivityName=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:value="com.paulphoku.ems.MainActivity"
-            android:parentActivityName="com.paulphoku.ems.HomeActivity"
-            >
+            android:value="com.paulphoku.ems.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

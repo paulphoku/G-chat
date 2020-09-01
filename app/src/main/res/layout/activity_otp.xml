@@ -18,7 +18,7 @@
         android:fontFamily="cursive"
         android:textColor="#ffffff"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/bgtext"
+        android:background="@drawable/image_1"
         />
 
 
@@ -26,14 +26,13 @@
         android:layout_width="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_height="wrap_content"
-        android:text="@string/otp_password"
+        android:text="One Time Pin"
         android:textColor="#D95525"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/otp_txt_password"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:paddingHorizontal="12dp"
         android:paddingVertical="20dp"
         android:layout_marginHorizontal="30dp"
@@ -57,4 +56,6 @@
         android:textAlignment="center"
 
         />
+    <include
+        layout="@layout/bar"/>
 </LinearLayout>
